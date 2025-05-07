@@ -1,0 +1,8 @@
+{
+    "orgPrefix": "{{org-prefix}}",
+    "orgSuffix": "{{org-suffix}}",
+    "deliveryType": "container",
+    "prjPrefix": "{{prj-prefix}}",
+    "prjSuffix": "{{prj-suffix}}",
+    "artifactoryHost": "{{artifactory-host}}"
+}

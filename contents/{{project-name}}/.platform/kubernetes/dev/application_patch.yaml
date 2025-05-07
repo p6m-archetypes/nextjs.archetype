@@ -1,0 +1,17 @@
+---
+apiVersion: meta.p6m.dev/v1alpha1
+kind: PlatformApplication
+metadata:
+  name: fe-{{package-name}}
+spec:
+  config:
+    REACT_APP_ENV: dev
+    APP_BASE_URL: "https://{{package-name}}.eks.us-east-2.aws.dev.{{org-prefix}}-{{org-suffix}}.p6m.run"
+    API_URL: "https://federated-gateway.eks.us-east-2.aws.dev.{{org-prefix}}-{{org-suffix}}.p6m.run/"
+  networking:
+    ingress:
+      hostnames:
+        - {{package-name}}.eks.us-east-2.aws.dev.{{org-prefix}}-{{org-suffix}}.p6m.run
+      cdn:
+        domains:
+          - {{package-name}}.cdn.aws.dev.{{org-prefix}}-{{org-suffix}}.p6m.run

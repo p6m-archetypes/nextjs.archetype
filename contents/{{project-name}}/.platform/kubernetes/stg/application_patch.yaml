@@ -1,0 +1,15 @@
+---
+apiVersion: meta.p6m.dev/v1alpha1
+kind: PlatformApplication
+metadata:
+  name: fe-{{package-name}}
+spec:
+  config:
+    REACT_APP_ENV: staging
+  networking:
+    ingress:
+      hostnames:
+        - {{package-name}}.eks.us-east-2.aws.stg.{{org-prefix}}-{{org-suffix}}.p6m.run
+      cdn:
+        domains:
+          - {{package-name}}.cdn.aws.stg.{{org-prefix}}-{{org-suffix}}.p6m.run
