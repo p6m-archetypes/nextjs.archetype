@@ -6,8 +6,8 @@ export default defineConfig({
         mode: 'tags-split',
         target: 'src/swagger/api/generated',
         schemas: 'src/swagger/api/generated/model',
-        client: 'react-query',
-        mock: true,
+        client: 'fetch',
+        mock: false,
       },
       input: {
         target: './example-swagger.json', // Swap this out for your swagger file or endpoint
