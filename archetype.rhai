@@ -18,7 +18,7 @@ if switch_enabled("debug-answers") || switch_enabled("debug-all") {
 context += render(Archetype("org-prompts"), ANSWERS);
 
 context += prompt("Root directory: ", "project-name", #{
-    defaults_with: "front-end-apps",
+    defaults_with: "nextjs-app",
     cases: [
         CasedIdentityCasedValue(PROGRAMMING_CASES),
     ],
@@ -26,7 +26,7 @@ context += prompt("Root directory: ", "project-name", #{
 context += prompt("Artifactory Host:", "artifactory-host", #{
     defaults_with: "p6m.jfrog.io",
 });
-context += set("package-name", render("{{ org-name }}-{{ solution-name }}", context));
+context += set("package-name", render("{{ root-directory }}", context));
 context += set("org-prefix", render("{{ org-name }}", context));
 context += set("org-suffix", render("{{ solution-name }}", context));
 context += set("prj-prefix", "front-end");

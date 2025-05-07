@@ -4,17 +4,14 @@
 apiVersion: meta.p6m.dev/v1alpha1
 kind: PlatformApplication
 metadata:
-  name: fe-{{package-name}}
+  name: {{package-name}}
   labels:
-    p6m.dev/domain: company
-    p6m.dev/app: fe-{{package-name}}
-    p6m.dev/project-domain: {{org-prefix}}-{{package-name}}
-    p6m.dev/project-name: {{org-prefix}}-{{package-name}}-{{package-name}}
+    p6m.dev/app: {{package-name}}
 spec:
   autoscaling:
     enabled: true
   deployment:
-    image: fe-{{package-name}}-server:latest # Set to a digest in the .platform repo patch
+    image: {{package-name}}-server:latest # Set to a digest in the .platform repo patch
     ports:
       - protocol: http
         port: 3000
@@ -32,5 +29,5 @@ spec:
         required: true
         wafId: null # This is set in the patch files per environment
         domains: [] # This is set in the patch files per environment
-  secrets:
-    - name: {{package-name}}-secret
+  # secrets:
+  #   - name: {{package-name}}-secret
