@@ -7,7 +7,7 @@ To get started, [install archetect](https://archetect.github.io/getting_started.
 and render this template to your current working directory:
 
 ```bash
-archetect render git@github.com:p6m-dev/nextjs.archetype.git
+archetect render git@github.com:p6m-archetypes/nextjs.archetype.git
 ```
 For information about interacting with the service, refer to the README at the generated project's root.
 
@@ -18,7 +18,7 @@ When rendering the archetype, you'll be prompted for the following values:
 |----------| ----------- | ------- | ------- | ---------------- | -------- |
 | Organization Name | Organization identifier | ashley | - | org-name | No |
 | Project Name | Solution identifier | dp | - | solution-name | No |
-| Root Directory | Root directory name | front-end-apps | front-end-apps | project-name | Yes |
+| Root Directory | Root directory name | nextjs-app | front-end-apps | project-name | Yes |
 | Artifactory Host | Artifactory host URL | p6m.jfrog.io | p6m.jfrog.io | artifactory-host | Yes |
 | Install Dependencies | Run pnpm install after setup | y | y | pnpm_install | Yes |
 | Initialize Git | Initialize Git repository | y | y | git_init | Yes |
