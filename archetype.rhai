@@ -26,6 +26,7 @@ context += prompt("Root directory: ", "project-name", #{
 context += prompt("Artifactory Host:", "artifactory-host", #{
     defaults_with: "p6m.jfrog.io",
 });
+context += set("root-directory", render("{{ project-name }}", context));
 context += set("package-name", render("{{ root-directory }}", context));
 context += set("org-prefix", render("{{ org-name }}", context));
 context += set("org-suffix", render("{{ solution-name }}", context));
@@ -37,8 +38,6 @@ context += set("organization-name", render("{{ org-name }}-{{ solution-name }}",
         CasedIdentityCasedValue(PROGRAMMING_CASES),
     ],
 });
-
-context += set("root-directory", render("{{ project-name }}", context));
 
 context += prompt("Should we run 'pnpm install' for you?", "pnpm_install", #{
     type: Bool,
