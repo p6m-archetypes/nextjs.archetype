@@ -14,7 +14,7 @@
             "push": true,
             "metadata": {
               "images": [
-                "{{ artifactory-host }}/{{ org-prefix }}-{{ org-suffix }}-docker-local/applications/fe-{{ package-name }}-server"
+                "{{ artifactory-host }}/{{ org-prefix }}-{{ org-suffix }}-docker-local/applications/{{ package-name }}-server"
               ],
               "load": true,
               "tags": [
