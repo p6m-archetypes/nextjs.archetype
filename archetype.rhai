@@ -45,12 +45,6 @@ context += prompt("Should we run 'pnpm install' for you?", "pnpm_install", #{
     defaults_with: true
 });
 
-context += prompt("Should we initialize a Git repository and stage the changes?:", "git_init", #{
-    type: Bool,
-    help: "y/n",
-    defaults_with: true
-});
-
 if switch_enabled("debug-context") || switch_enabled("debug-all") {
     display("Front-End Codebase Context:");
     display(as_yaml(context));
@@ -72,33 +66,11 @@ if context.pnpm_install == true {
     display("✔ Successfully installed dependencies!\n");  
 }
 
-if context.git_init == true {
-    display("Initializing Git...");
-    execute("git", #{
-        args: [
-           "init"
-        ],
-        directory: context["root-directory"],
-      });
-    execute("git", #{
-        args: [
-            "add",
-            "."
-        ],
-        directory: context["root-directory"],
-    });  
-    display("✔ Successfully initialized and staged\n");
-}
-
 display("\nNEXT STEPS:\n");
 display(`  cd ${context["root-directory"]}`);
 
 if context.pnpm_intall == false {
     display("  pnpm install");
-}
-
-if context.git_init == true {
-    display(`  git commit -m "initial commit"`);
 }
 
 display(`  pnpm dev`);
